@@ -1,28 +1,38 @@
 "use strict";
+// //*** exercise 1 ****
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.logPerson = exports.users = void 0;
-const exercicio2_1 = require("../src/exercicio2");
-const exercicio2_2 = require("../src/exercicio2");
-const le = 'oi';
-;
-//using type in db model
-exports.users = [
+exports.logPerson = exports.persons = void 0;
+exports.persons = [
     {
-        name: 'Wilker',
+        name: 'Max Mustermann',
         age: 25,
-        occupation: 'Backend developer'
+        occupation: 'Chimney sweep'
     },
     {
-        name: 'Bob',
+        name: 'Jane Doe',
+        age: 32,
+        role: 'Administrator'
+    },
+    {
+        name: 'Kate Müller',
         age: 23,
-        occupation: 'Product Manager'
+        occupation: 'Astronaut'
+    },
+    {
+        name: 'Bruce Willis',
+        age: 64,
+        role: 'World saver'
     }
 ];
-//presenting necessary information
-function logPerson(users) {
-    console.log(` - ${users.name}, ${users.age}`);
+function logPerson(person) {
+    let additionalInformation;
+    if (person.role) {
+        additionalInformation = person.role;
+    }
+    else {
+        additionalInformation = person.occupation;
+    }
+    console.log(` - ${person.name}, ${person.age}, ${additionalInformation}`);
 }
 exports.logPerson = logPerson;
-console.log('Users:');
-exports.users.forEach(logPerson);
-(0, exercicio2_2.testar)(exercicio2_1.oi);
+exports.persons.forEach(logPerson);
